@@ -2,9 +2,8 @@
 #include <stdbool.h>
 #include <string.h>
 
-int main() {
-  char board[8][8], i, j;
-  bool queue = true;
+void order_pieces(char board[8][8]){
+        int i, j;
         for(i = 0; i < 8; i++){
                 for(j = 0; j < 8; j++){
                         
@@ -33,36 +32,29 @@ int main() {
                         }
                 }
         }
-    int print_board() {
-        for(i = 0; i < 8; i++){
-            for(j = 0; j < 8; j++){
-                    printf("[ %c ]\t ", board[i][j]);
-                    if(j == 7) {
-                            printf("\n");
+}
+
+void print_board(char board[8][8]){
+    int a, b;
+    bool queue = true;
+    for(a = 0; a < 8; a++){
+            for(b = 0; b < 8; b++){
+                    printf("[ %c ]\t", board[a][b]);
+                    if(b == 7) {
+                            printf("\n\n");
                     }
             }
         }
-        if(queue == true) {
+        if(queue == true) 
             printf("\nQueue is at white.\n\n\n");
-        } else {
+        else 
             printf("\nQueue is at black.\n\n\n");
-        }
-        return 0;
-    }
-  
-    print_board();
+}
 
-    if(queue == true) {
-        printf("\nQueue is at white.\n\n\n");
-    }
-
-    char move[3] = "e4";
-    if(move[0] == 'e'){
-        board[4][4] = 'P';
-        board[6][4] = ' ';
-        queue = !queue;
-        print_board();
-    }
+int main() {
+    char board[8][8];
+    order_pieces(board);
+    print_board(board);
 
     return 0;
 }
