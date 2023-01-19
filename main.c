@@ -1,6 +1,17 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+
+void make_move(char board[8][8]){
+    for(;;){
+        char input[4];
+        printf("Enter an input: ");
+        scanf("%s", input);
+        printf("%s\n", input);
+        print_board(board);
+    }
+}
 
 void order_pieces(char board[8][8]){
         int i, j;
@@ -46,15 +57,15 @@ void print_board(char board[8][8]){
             }
         }
         if(queue == true) 
-            printf("\nQueue is at white.\n\n\n");
+            printf("Queue is at white.\n");
         else 
-            printf("\nQueue is at black.\n\n\n");
+            printf("Queue is at black.\n");
 }
 
 int main() {
     char board[8][8];
     order_pieces(board);
     print_board(board);
-
+    make_move(board);
     return 0;
 }
