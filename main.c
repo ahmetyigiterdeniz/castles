@@ -1,11 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-
-void makeMove() {
-    char str[100];
-    scanf("%s", str);
-    printf("%s", str);
-}
+#include <string.h>
 
 int main() {
   char board[8][8], i, j;
@@ -38,22 +33,36 @@ int main() {
                         }
                 }
         }
-  for(i = 0; i < 8; i++){
-          for(j = 0; j < 8; j++){
-                  printf("[ %c ]\t ", board[i][j]);
-                  if(j == 7) {
-                          printf("\n");
-                  }
-          }
-  }
+    int print_board() {
+        for(i = 0; i < 8; i++){
+            for(j = 0; j < 8; j++){
+                    printf("[ %c ]\t ", board[i][j]);
+                    if(j == 7) {
+                            printf("\n");
+                    }
+            }
+        }
+        if(queue == true) {
+            printf("\nQueue is at white.\n\n\n");
+        } else {
+            printf("\nQueue is at black.\n\n\n");
+        }
+        return 0;
+    }
+  
+    print_board();
 
     if(queue == true) {
-        printf("\nQueue is at white.");
+        printf("\nQueue is at white.\n\n\n");
     }
-    
-    for(;;) {
-        makeMove();
+
+    char move[3] = "e4";
+    if(move[0] == 'e'){
+        board[4][4] = 'P';
+        board[6][4] = ' ';
+        queue = !queue;
+        print_board();
     }
-    
-        return 0;
+
+    return 0;
 }
