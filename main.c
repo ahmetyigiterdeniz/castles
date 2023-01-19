@@ -1,7 +1,15 @@
 #include <stdio.h>
+#include <stdbool.h>
+
+void makeMove() {
+    char str[100];
+    scanf("%s", str);
+    printf("%s", str);
+}
 
 int main() {
   char board[8][8], i, j;
+  bool queue = true;
         for(i = 0; i < 8; i++){
                 for(j = 0; j < 8; j++){
                         
@@ -38,5 +46,14 @@ int main() {
                   }
           }
   }
+
+    if(queue == true) {
+        printf("\nQueue is at white.");
+    }
+    
+    for(;;) {
+        makeMove();
+    }
+    
         return 0;
 }
